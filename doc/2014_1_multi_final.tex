@@ -1,0 +1,192 @@
+%%% written by Hoze.
+\documentclass[A4paper,chapter,footnote,5pt]{oblivoir}
+\usepackage{com-style}
+
+\begin{document}
+%%%%%% 소스코드를 위한 부분 begin 이후 집어넣어야함. 스타일엔 안들어가네요.
+\fvset{fontsize=\footnotesize}
+\fvset{fontsize=\footnotesize,numbers=left,tabsize=4}
+
+%%%%%%%  합칠때 여기까지 처음부터 여기까지 막음 
+%%%%%%%  \end{document } 도 막아주어야 함. 
+\begin{center}
+\large\textbf{ 2014-1 멀티미디어시스템 기말고사}\\
+\end{center}
+학과:\hspace{25 mm}   이름:\hspace{25 mm}   학년: \hspace{25 mm}   학번: \hspace{25 mm}  분반:\hspace{25 mm}
+\\
+※ 문항당 5점 \\
+※ 출제범위 : 리눅스 운영체제 기본(라즈베리파이)
+
+\practice{}
+\begin{Exlist}
+
+\item 아래와 같은 명령이 의미하는것이 무엇인지 설명하시오. (5점)
+
+sudo dd bs=4M if=~/rpi/2013-09-10-wheezy-raspbian.img of=/dev/ssd
+
+
+\begin{solution}\begin{explain}
+\item[정답] 리눅스 시스템에서 라즈비안 이미지 복사방법
+\\사용법 : dd 옵션
+\\옵션 
+\\of=file : 표준출력대신 지정한 파일에 작성한다.
+\\if=file : 표준입력대신 지정한 파일에서 불러들인다.
+\\ibs=size 지정한 사이즈만큼 읽는다.
+\\obs=size 지정한 사이즈만큼 쓴다.
+\\bs=size 지정한 사이즈만큼 읽고 쓴다.
+\\count=n 입력블록의 ibs크기만큼 복사한다.
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+
+\item 리눅스 시스템에서 네트웍(인터넷)을 사용하고자 한다. 설정시 미리 알고 있어야 하는 사항들은 어떤것들이 있는가 2가지 이상 작성하시오.
+\\(단 DHCP 설정이 아닌경우) )(5점)
+
+\begin{solution}\begin{explain}
+\item[정답] Domain, Hostname, IP, GW, DNS
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+
+\item 리눅스 시스템에서 파티션을 작성한다는 이야기는 무슨 뜻인가? (5점)
+
+\begin{solution}\begin{explain}
+\item[정답] 하드디스크의 물리적 공간을 논리적으로 나누어 관리한다.
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+
+
+
+
+\item 라즈베리파이 처음 설치후 터미널 입력창에서 X 윈도우를 수행시키기 위한 명령어는?(5점)
+
+\begin{solution}\begin{explain}
+\item[정답] startx
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+\item 라즈베리파이 처음 설치후 패키지 관리 서버로 부터 이용 가능한 프로그램 패키지의 목록을 최신 버전으로 업데이트 하는 명령은? (5점)
+
+\begin{solution}\begin{explain}
+\item[정답] sudo apt-get update
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+\item 라즈베리파이 처음 설치후 업데이트 목록중 새로운 버전으로 설치해 주는 명령은?(5점)
+
+\begin{solution}\begin{explain}
+\item[정답] sudo apt-get upgrade
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+\item 터미널에서 라즈비안 재부팅하기 위한 명령은?(5점)
+
+\begin{solution}\begin{explain}
+\item[정답] sudo shutdown -r now, sudo reboot
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+\item 터미널에서 라즈비안 종료하기 위한 명령은?(5점)
+
+\begin{solution}\begin{explain}
+\item[정답] sudo shutdown -h now, sudo halt
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+
+\item 터미널에서 네트웍 설정을 하기 위해 /etc/network/interfaces 를 편집하고자 한다. 편집을 위한 명령은? (편집 유틸은 nano)(5점)
+
+\begin{solution}\begin{explain}
+\item[정답] sudo nano /etc/network/interfaces
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+\item 터미널에서 시스템의 네트웍 설정을 확인하고자 하는 명령은?(5점)
+
+\begin{solution}\begin{explain}
+\item[정답] ifconfig
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+
+
+\item 라즈베리 파이를 이용해서 모터를 제어하고자 한다. 이때 라즈베리의 범용 입출력 장치 이름을 무엇이라고 하는가?(5점)
+
+\begin{solution}\begin{explain}
+\item[정답] GPIO
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+
+\item 라즈베리 파이를 이용해서 모터를 제어하고자 한다. 소스관리 툴인 gjt 을 다운로드 하고 설치 하기 위한 명령은? (5점)
+
+\begin{solution}\begin{explain}
+\item[정답] sudo apt-get install git-core
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+
+\item 라즈베리 파이를 이용해서 모터를 제어하고자 한다. git://git.drogon.net/wiringPi 의 wiringPi 를 다운로드 하기 위한 명령은? (5점)
+
+\begin{solution}\begin{explain}
+\item[정답] git clone git://git.drogon.net/wiringPi
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+
+
+\item wiringPi 를 빌드 및 설치 하기 위한 명령은?(5점)
+
+\begin{solution}\begin{explain}
+\item[정답] ./build
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+
+\item wiringPi 설치후 작업폴더 gpio 를 만들고 gpio 폴더로 이동하는 명령은?(5점)
+
+\begin{solution}\begin{explain}
+\item[정답] mkdir gpio, cd gpio
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+
+\item output.c 파일을 wiringPi 를 이용해서 컴파일 하는 방법은?(5점)
+
+\begin{solution}\begin{explain}
+\item[정답] gcc -o output output.c -lwiringPi
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+\item 리눅스 운영체제에서 해당위치의 파일 정보(숨겨진파일포함)을 자세히 볼 수 있는 명령은?(5점)
+\begin{solution}\begin{explain}
+\item[정답] ls -al
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+
+\item 리눅스 운영체제에서 \\
+drwxrwxr-x 와 -rwxrwxr-x 같은 권한값의 차이점은? (5점)
+\begin{solution}\begin{explain}
+\item[정답] 디렉토리와 파일의 차이
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+\item 리눅스 운영체제에서 \\
+drwxrwxr-x 와 -rwxrwxr-x 같은 권한값의 차이점은? (5점)
+\begin{solution}\begin{explain}
+\item[정답] 디렉토리와 파일의 차이
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+\item 리눅스 운영체제에서 test.c 파일의 -rwxrwxr-x 권한을 가지고 있을때 -rw-rw-r-x 로 수정하기 위한 명령은? (5점)
+\begin{solution}\begin{explain}
+\item[정답] chmod 665 test.c
+\end{explain}\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\\
+
+
+
+\end{Exlist}
+\end{document}

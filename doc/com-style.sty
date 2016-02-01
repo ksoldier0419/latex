@@ -1,0 +1,662 @@
+%%% written by Hoze.
+
+\usepackage[polutonikogreek,english]{babel}
+
+\usepackage{fapapersize} % 맘에 안들면 주석처리
+\usefapapersize{210mm, 297mm, 30mm, 30mm, 30mm, 30mm}  % 맘에 안들면 주석처리
+
+
+\usepackage[ampersand]{easylist}
+\usepackage{syntonly} %\syntaxonly  % 실제출력하고자할때는 주석처리. DVI 출력물을 안만들어서 속도가 빠르다.
+%%\syntaxonly
+
+
+\usepackage{amssymb}
+%%%%%%%%%%%%%%%%%% 문제를 위한 부분
+
+\newcommand{\practice}{\vskip 10mm\hspace{-2em}{\color{cyan}\huge{\textbf{\scshape Question}\\[-1mm]}}}
+
+\newcommand{\answer}{\vskip 10mm\hspace{-2em}{\color{cyan}\huge{\textbf{\scshape 정답}\\[-1mm]}}}
+
+% explain 환경
+  
+\newcommand{\explainlabel}[1]{\mbox{\textsf{#1}}\hfill}
+\newenvironment{explain}
+{\begin{list}{}%
+  {\renewcommand{\makelabel}{\explainlabel}%\item[어휘] 부분 나타내기
+  \small %small font
+\setlength{\labelsep}{10pt}%
+\setlength{\itemsep}{0pt}%
+\setlength{\baselineskip}{14pt}%item의 줄간격 James Farmer, ..., multiple choice의 줄 간격에 영향을 줌
+\setlength{\leftmargin}{35pt}%
+\setlength{\labelwidth}{25pt}%
+\setlength{\listparindent}{0pt}}}
+{\end{list}} 
+
+\newcommand\ans[1]{\begin{explain}\item[\sffamily{\small 정답}]{\vskip 0mm \small{#1}}\end{explain}}
+\newcommand\trans[1]{\begin{explain}\item[\sffamily{\small 번역}]{\vskip -3mm \small{#1}}\end{explain}}
+\newcommand\voc[1]{\begin{explain}\item[\sffamily\hskip 3mm{\normalsize 어휘}]{\vskip 0mm  \normalsize{#1}}\end{explain}}
+
+%밑줄
+%\newcommand{\blank}{\uline{~~~~~~~~~~~~~~~}{~}}
+\newcommand{\blank}{{~}\vbox{\hrule width .6in}{~}}
+
+%밑줄
+%\newcommand{\blank}{\uline{~~~~~~~~~~~~~~~}{~}}
+\newcommand{\pt}{\color{red}}
+
+% Enumerate 환경
+\newcounter{exlist}
+\newenvironment{Exlist}
+{\begin{list}{\Huge\color{cyan}\arabic{exlist}}{%
+%{\begin{list}{}{%
+\small\normalfont
+\usecounter{exlist}%
+\setlength{\labelsep}{10pt}%
+\setlength{\itemsep}{20pt}%
+%\setlength{\baselineskip}{20pt}
+\setlength{\leftmargin}{40pt}%
+\setlength{\labelwidth}{40pt}%
+\setlength{\listparindent}{0pt}}}%
+{\end{list}}
+
+% Enumerate 환경(정답}
+\newcounter{exlist3}
+\newenvironment{Exlist3}
+{\begin{list}{\Large\arabic{exlist3}}{%
+%{\begin{list}{}{%
+\usecounter{exlist3}%
+\normalfont\footnotesize %size 적용 안 됨
+\setlength{\labelsep}{10pt}%
+\setlength{\itemsep}{6pt}%item 간의 간격
+\setlength{\baselineskip}{8pt}%item의 줄간격
+%\setlength{\parsep}{8pt}
+\setlength{\leftmargin}{40pt}%
+\setlength{\labelwidth}{40pt}%
+\setlength{\listparindent}{0pt}}}%
+{\end{list}}
+
+
+%%%%%%%%%%%%%%%%%%%  그래프 그리기용
+%%\usepackage{tikz}
+\usepackage{tikz}
+\usetikzlibrary{shapes}  %% tikz 예제용
+\usetikzlibrary{matrix,calc} %% 카르노맵용
+\usepackage{colortbl} % 컬러테이블
+
+
+%%%%%%%%%%%%%%%%%%% 코드하이라이팅을 위한 부분
+
+\usepackage{listings}
+\usepackage{fancyvrb}
+\usepackage{moreverb}
+\usepackage{kotex} 
+\lstset{language=c}
+\newcounter{mysourcecounter}[section]
+\setcounter{mysourcecounter}{1}  %프로그램 끝자리 번호
+\makeatletter
+\newcommand{\listofsources}{\@starttoc{xmp}}
+\newenvironment{Source}[1]{\addcontentsline{xmp}{source}{#1}
+\vskip 1em
+\noindent\hrule height 1pt
+\vskip 2pt
+\noindent{ \thesection .\themysourcecounter} #1
+\stepcounter{mysourcecounter}
+\vskip 2pt
+\noindent\hrule height 0.4pt
+\begin{list}{}{\setlength\leftmargin{0pt}}\item[]}
+{\end{list}
+\vskip 2pt
+\noindent\hrule height 1pt
+\vskip 1em}
+\newcommand{\l@source}[2]{\par\noindent#1 \dotfill {\itshape #2}}
+%%% \makeatother
+
+%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{bookmarksnumbered,colorlinks=true}
+\hypersetup{pdftitle=설명서 글쓰기에 대하여, pdfauthor=이 호재}
+
+%%%%%%%%%%%% KTUGFaq:Karnes/Oblivoir/FAQ#2.4
+%%\usepackage[pdftex]{graphicx,xcolor}    %%\usepackage{tikz} 넣으면서 막음
+%%\usepackage{graphicx,subfig} % 이미지 출력 subfig 주가할것....  %%\usepackage{tikz} 넣으면서 막음
+
+
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg} % 확장자 선택
+
+\definecolor{nicered}{rgb}{.647,.129,.149}
+
+\makeatletter
+\newlength{\numberheight}
+
+\makeatother
+
+\AtBeginDocument{% 
+\oblivoirchapterstyle{TroelsPedersen}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addtodef{\quote}{\small}{}
+\addtodef{\itemize}{\small}{}
+\addtodef{\enumerate}{\small}{}
+
+\settocdepth{subsection}
+\counterwithin{footnote}{chapter}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%옵션 설정은 문제에서 처리. 이 파일은 이제 건들 일이 없네. 호호
+%\newif\ifaaa
+%\aaatrue
+%\aaafalse  
+
+\ifaaa
+\newenvironment{solution}{
+\color{red}
+%%%\comment   %%%
+%%%}{  %%%
+%%%\endcomment  %%%
+} %white red정답 색상
+
+\else
+\newenvironment{solution}{
+\color{red}
+\comment   %%%
+}{  %%%
+\endcomment  %%%
+} %white red정답 색상
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%
+\newenvironment{handout}{
+\color{blue}
+\comment   %%%
+}{  %%%
+\endcomment  %%%
+} %white red정답 색상
+
+
+\newenvironment{memo}{\color{blue}
+\comment
+}
+{
+\endcomment
+}   %\begin(comment) 는 직접넣으면 되는데 새로운 환경으로 할려니 안되네 쩝
+
+
+\newenvironment{makebody}{   %본문내용 연습문제만 추출하기 위한 용도
+%\comment
+}
+{
+%\endcomment
+}   %\begin(comment) 는 직접넣으면 되는데 새로운 환경으로 할려니 안되네 쩝
+
+
+
+
+
+
+
+
+\newenvironment{result}{\color{blue}
+\begin{table}[htbp]
+\begin{tabular}{|p{150mm}|}\hline
+\rule{1ex}{1ex} Result \rule{1ex}{1ex} \\ 
+}{\\ \hline
+\end{tabular}
+\end{table}
+}
+\newenvironment{PATH}{\color{blue}
+\begin{table}[htbp]
+\begin{tabular}{|p{150mm}|}\hline
+\rule{1ex}{1ex} PATH \rule{1ex}{1ex} \\ 
+}{\\ \hline
+\end{tabular}
+\end{table}
+}
+
+
+\pagestyle{Ruled}
+
+
+%챕터 스타일 넣기 -------------------------------------------
+
+
+\usepackage{multienum}
+\usepackage{titlesec}
+\usepackage{paralist}
+
+
+%폰트 키우기
+\newcommand{\LargeFont}{% Needs a 'stretchable' font
+      \usefont{\encodingdefault}{\rmdefault}{b}{n}%
+      \fontsize{50}{70}\selectfont\color{ChapGrey}}
+\newcommand{\largeFont}{% Needs a 'stretchable' font
+      \usefont{\encodingdefault}{\rmdefault}{b}{n}%
+      \fontsize{40}{50}\selectfont\color{ChapGrey}}
+\newcommand{\ChapterFont}{% Needs a 'stretchable' font
+      \usefont{\encodingdefault}{\rmdefault}{b}{n}%
+      \fontsize{25}{36}\selectfont\sffamily}
+\newcommand{\sFont}{% Needs a 'stretchable' font
+      \usefont{\encodingdefault}{\rmdefault}{b}{n}%
+      \fontsize{7}{7}\selectfont}		  
+
+%% a few user-defined colors
+\definecolor{Lcyan}{cmyk}{0.2, 0, 0, 0.00}
+\definecolor{Mcyan}{cmyk}{0.4, 0, 0, 0.05}
+\definecolor{Dcyan}{cmyk}{0.6, 0, 0, 0.05}
+\definecolor{Fcyan}{cmyk}{1.0, 0, 0, 0.05}
+\definecolor{Mgray}{cmyk}{0, 0, 0, 0.55}
+\definecolor{nicered}{rgb}{.647,.129,.149}
+\definecolor{niceblue}{rgb}{0.00,0.65,0.65}
+\definecolor{ChapGrey}{rgb}{0.6,0.6,0.6}
+
+%\usepackage{fourier} % or what ever
+%\usepackage[scaled=.92]{helvet}%. Sans serif - Helvetica
+
+\usepackage{color,calc}
+
+\newsavebox{\ChpNumBox}
+\definecolor{ChapBlue}{rgb}{0.00,0.51,0.204}
+\makeatletter
+\newcommand*{\thickhrulefill}{%
+\leavevmode\leaders\hrule height 1\p@ \hfill \kern \z@}
+\newcommand*\BuildChpNum[2]{%
+ 
+\begin{tabular}[t]{@{}c@{}}
+\makebox[0pt][c]{#1\strut} \\[.5ex]
+\colorbox{cyan}{%
+\rule[-8em]{5pt}{0pt}%박스 [길이-20]{폭0}{검정박스0}
+\rule{2ex}{0pt}\color{black}#2\strut
+\rule{2ex}{0pt}}%박스 {왼쪽 폭 1}{흰 bar 0}
+\end{tabular}}
+
+\makechapterstyle{BlueBox}{%
+\renewcommand{\chapnamefont}{\Large\scshape}
+\renewcommand{\chapnumfont}{\Huge\bfseries\color{white}}%챕터 숫자
+\renewcommand{\chaptitlefont}{\centering\ChapterFont\bfseries\sffamily} %제목(주어)
+\setlength{\beforechapskip}{-30pt}
+\setlength{\midchapskip}{26pt}
+\setlength{\afterchapskip}{20pt}
+\renewcommand{\printchaptername}{}
+\renewcommand{\chapternamenum}{}
+\renewcommand{\prechapternum}{}%
+\renewcommand{\postchapternum}{}%
+\renewcommand{\printchapternum}{%
+ %\colorbox{white}{\Huge \color{black}\underline{UNIT}}\\[-0.8cm]%Unit
+\sbox{\ChpNumBox}{%
+\BuildChpNum{\chapnamefont\@chapapp}%
+{\chapnumfont\thechapter}}}
+\renewcommand{\printchapternonum}{%
+\sbox{\ChpNumBox}{%
+\BuildChpNum{\chapnamefont\vphantom{\@chapapp}}%
+{\chapnumfont\hphantom{\thechapter}}}}
+\renewcommand{\afterchapternum}{}
+\renewcommand{\printchaptertitle}[1]{%
+\usebox{\ChpNumBox}\hfill
+\parbox[t]{\hsize-\wd\ChpNumBox-1em}{%
+\vspace{\midchapskip}%
+\thickhrulefill\par
+\chaptitlefont ##1\par}}%
+\renewcommand{\hchaptertitlehead}{Chapter{~~} \thechapter\quad } %차례에 표시
+\setlength{\cftchapternumwidth}{6.3em} %차례의 챕터 다음 여백
+  %\setlength{\cftbeforechapterskip}{1.8em}
+}
+
+
+\chapterstyle{BlueBox}
+\def\chaptername{Unit}
+
+\renewcommand\prechapterprecis{%
+  \hfill\begin{minipage}{.75\linewidth}\small\sffamily}
+\renewcommand\postchapterprecis{%
+  \end{minipage}\par\vspace{1.0cm}}
+
+
+
+
+%
+%섹션장식
+%section 고딕
+\makeatletter
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesection}{\LARGE\arabic{section}}
+
+
+\makeatother
+
+
+
+
+%------------------- 정리 표 넣기 
+
+\colorlet{MainColor}{blue}
+  
+\usepackage[framemethod=tikz,xcolor]{mdframed}
+\usetikzlibrary{arrows}
+
+\mdtheorem[%
+	font=\small,
+	roundcorner=5pt,
+	backgroundcolor=MainColor!5,
+	linecolor=MainColor,
+	linewidth=.5pt,
+	skipabove=1.33\onelineskip,
+	skipbelow=1.33\onelineskip,
+	needspace=\onelineskip,
+	splittopskip=.75\onelineskip,
+	splitbottomskip=.75\onelineskip,
+	innertopmargin=.75\onelineskip,
+	innerbottommargin=.75\onelineskip,
+	frametitlefont={\sffamily\color{MainColor}},
+	frametitlerule=true,
+	frametitlerulewidth=.25pt,
+	frametitlebackgroundcolor=MainColor!10,
+	ignorelastdescenders=true,
+]{thm}{Point}  
+
+%------------------- 
+
+
+%------------ 정답 스타일 
+
+\newenvironment{exe}{
+\definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
+\begin{shaded}
+\small
+\noindent
+[실행결과]\\
+}{
+% \begin{verbatim}  %\end{verbatim}
+\end{shaded}
+} %white red정답 색상
+
+
+\newenvironment{exbox}{
+\definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
+\begin{shaded}
+\small
+\noindent
+}{
+\end{shaded}
+} %white red정답 색상
+
+% 사용 셈플
+%\begin{exbox}
+%\begin{verbatim}
+%2진수 입력(0000~1111 사이 값) << 1110
+%10진수로 변환 : 14
+%Press any key to continue . . .
+%\end{verbatim}
+%\end{exbox}
+
+
+%------------ 이미지 처리하기
+%경로를 바깥에서 넣어주면 이상하게 에러가 나네.흠.
+
+\usepackage{amsmath}  %그림그리기.
+\usepackage{subfig}
+\usepackage{sidecap} %이미지 옆 자막
+
+
+
+\newcommand{\kkfig}[3]{
+\begin{figure}[htbp]
+\begin{center}
+    \includegraphics[width={#1}\textwidth]{./compro_img/{#2}}
+    \caption{{#3}} \label{fig:label}
+\end{center}
+\end{figure}
+}
+
+
+\newcommand{\kkfigfig}[5]{
+\begin{figure}
+ \centering 
+ \subfloat[{#2}]
+  {\includegraphics[width=0.4\textwidth]{./compro_img/{#1}}}
+\hspace{0.5cm}
+ \subfloat[{#4}]
+  {\includegraphics[width=0.4\textwidth]{./compro_img/{#3}}}
+\caption{{#5}} \label{fig:label}
+
+\end{figure}
+}
+
+\newcommand{\kkfigfigfigfig}[8]{
+\begin{figure}
+ \centering 
+ \subfloat[{#2}]
+  {\includegraphics[width=0.4\textwidth]{./compro_img/{#1}}}
+\hspace{0.5cm}
+ \subfloat[{#4}]
+  {\includegraphics[width=0.4\textwidth]{./compro_img/{#3}}}
+ \subfloat[{#6}]
+  {\includegraphics[width=0.4\textwidth]{./compro_img/{#5}}}
+\hspace{0.5cm}
+ \subfloat[{#8}]
+  {\includegraphics[width=0.4\textwidth]{./compro_img/{#7}}}  
+\end{figure}
+}
+
+
+\newcommand{\kkfigfigcap}[5]{
+\begin{figure}
+ \centering 
+ \subfloat[{#2}]
+  {\includegraphics[width=0.4\textwidth]{./compro_img/{#1}}}
+\hspace{0.5cm}
+ \subfloat[{#4}]
+  {\includegraphics[width=0.4\textwidth]{./compro_img/{#3}}}
+ \caption{{#5}}
+\end{figure}
+}
+
+
+
+
+
+\newcommand{\kkfigtext}[{3}]
+{
+ \begin{SCfigure}[][h]
+\centering
+    \includegraphics[width={#1}\textwidth]{./compro_img/{#2}}
+    \caption{{#3}} \label{fig:label}
+\end{SCfigure}
+}
+
+%--- Diagram
+% http://www.texample.net/tikz/examples/work-breakdown-structure/
+
+\tikzset{
+  basic/.style  = {draw, text width=2cm, drop shadow, font=\sffamily, rectangle},
+  root/.style   = {basic, rounded corners=2pt, thin, align=center,
+                   fill=green!30},
+  level 2/.style = {basic, rounded corners=6pt, thin,align=center, fill=green!60,
+                   text width=8em},
+  level 3/.style = {basic, thin, align=left, fill=pink!60, text width=6.5em}
+}
+\usetikzlibrary{arrows,shapes,positioning,shadows,trees}
+
+%--- Diagram
+% http://www.texample.net/tikz/examples/smart-description/
+%http://www.texample.net/tikz/examples/smart-bubbles/
+\usepackage{smartdiagram}
+\usepackage{metalogo}
+\usepackage{dtklogos}
+
+
+
+%----------yellow note --------------%
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{calc}
+
+\setlength{\parskip}{0ex}
+\setlength{\parindent}{0ex}
+
+\newlength{\yellownotewidth}
+\setlength{\yellownotewidth}{2.5cm}
+\newlength{\yellownoteheight}
+\setlength{\yellownoteheight}{2.5cm}
+%   -   -   -   -   -   -   -   -   -   -   -   -
+% Yellow note...
+%   -   -   -   -   -   -   -   -   -   -   -   -
+\newcommand{\yellownote}[1]{
+\marginpar{
+    \vspace{-0.5\yellownoteheight}
+        \begin{center}
+        \begin{tikzpicture}
+            \draw[white,fill=gray!25,opacity=0.75,shift={(-0.125,-0.125)}] 
+                (0,0) rectangle (\yellownotewidth,\yellownoteheight);
+            \draw[fill=yellow!35] (0,0) rectangle (\yellownotewidth,\yellownoteheight);
+            \draw[opacity=0.45,fill=gray!50] (0.7\yellownotewidth,0) -- 
+                (0.9\yellownotewidth,0.45) -- (\yellownotewidth,0.4) -- cycle;
+            \node[blue,below] at (0.5\yellownotewidth,\yellownoteheight) {
+                \begin{minipage}{\yellownotewidth-1em}
+                	\scriptsize{#1}
+                    %\scriptsize\sf#1
+                \end{minipage}
+            };
+        \end{tikzpicture}
+        \end{center}
+        \vspace{0.5\yellownoteheight}
+    }
+}
+
+%   -   -   -   -   -   -   -   -   -   -   -   -
+% Resizeable - Yellow note...
+%   -   -   -   -   -   -   -   -   -   -   -   -
+\newcommand{\resizeableyellownote}[3]{
+\setlength{\yellownotewidth}{#1cm}
+\setlength{\yellownoteheight}{#2cm}
+\marginpar{
+    \vspace{-0.5\yellownoteheight}
+        \begin{center}
+        \begin{tikzpicture}
+            \draw[white,fill=gray!25,opacity=0.75,shift={(-0.125,-0.125)}] 
+                (0,0) rectangle (\yellownotewidth,\yellownoteheight);
+            \draw[fill=yellow!35] (0,0) rectangle (\yellownotewidth,\yellownoteheight);
+            \draw[opacity=0.45,fill=gray!50] (0.7\yellownotewidth,0) -- 
+                (0.9\yellownotewidth,0.45) -- (\yellownotewidth,0.4) -- cycle;
+            \node[blue,below] at (0.5\yellownotewidth,\yellownoteheight) {
+                \begin{minipage}{\yellownotewidth-1em}
+                	\scriptsize{#1}
+                \end{minipage}
+            };
+        \end{tikzpicture}
+        \end{center}
+        \vspace{0.5\yellownoteheight}
+    }
+}
+%
+% Fonts
+%
+\usepackage{slantsc}
+\usepackage[sc]{mathpazo}
+
+
+%---------------shade doc --------------%
+\usepackage{lipsum}   % To generate test text 
+\usepackage{framed}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing,calc}
+\pgfmathsetseed{1} % To have predictable results
+% Define a background layer, in which the parchment shape is drawn
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+% define styles for the normal border and the torn border
+\tikzset{
+  normal border/.style={orange!30!black!10, decorate, 
+     decoration={random steps, segment length=2.5cm, amplitude=.7mm}},
+  torn border/.style={orange!30!black!5, decorate, 
+     decoration={random steps, segment length=.5cm, amplitude=1.7mm}}}
+
+% Macro to draw the shape behind the text, when it fits completly in the
+% page
+\def\parchmentframe#1{
+\tikz{
+  \node[inner sep=2em] (A) {#1};  % Draw the text of the node
+  \begin{pgfonlayer}{background}  % Draw the shape behind
+  \fill[normal border] 
+        (A.south east) -- (A.south west) -- 
+        (A.north west) -- (A.north east) -- cycle;
+  \end{pgfonlayer}}}
+
+% Macro to draw the shape, when the text will continue in next page
+\def\parchmentframetop#1{
+\tikz{
+  \node[inner sep=2em] (A) {#1};    % Draw the text of the node
+  \begin{pgfonlayer}{background}    
+  \fill[normal border]              % Draw the ``complete shape'' behind
+        (A.south east) -- (A.south west) -- 
+        (A.north west) -- (A.north east) -- cycle;
+  \fill[torn border]                % Add the torn lower border
+        ($(A.south east)-(0,.2)$) -- ($(A.south west)-(0,.2)$) -- 
+        ($(A.south west)+(0,.2)$) -- ($(A.south east)+(0,.2)$) -- cycle;
+  \end{pgfonlayer}}}
+
+% Macro to draw the shape, when the text continues from previous page
+\def\parchmentframebottom#1{
+\tikz{
+  \node[inner sep=2em] (A) {#1};   % Draw the text of the node
+  \begin{pgfonlayer}{background}   
+  \fill[normal border]             % Draw the ``complete shape'' behind
+        (A.south east) -- (A.south west) -- 
+        (A.north west) -- (A.north east) -- cycle;
+  \fill[torn border]               % Add the torn upper border
+        ($(A.north east)-(0,.2)$) -- ($(A.north west)-(0,.2)$) -- 
+        ($(A.north west)+(0,.2)$) -- ($(A.north east)+(0,.2)$) -- cycle;
+  \end{pgfonlayer}}}
+
+% Macro to draw the shape, when both the text continues from previous page
+% and it will continue in next page
+\def\parchmentframemiddle#1{
+\tikz{
+  \node[inner sep=2em] (A) {#1};   % Draw the text of the node
+  \begin{pgfonlayer}{background}   
+  \fill[normal border]             % Draw the ``complete shape'' behind
+        (A.south east) -- (A.south west) -- 
+        (A.north west) -- (A.north east) -- cycle;
+  \fill[torn border]               % Add the torn lower border
+        ($(A.south east)-(0,.2)$) -- ($(A.south west)-(0,.2)$) -- 
+        ($(A.south west)+(0,.2)$) -- ($(A.south east)+(0,.2)$) -- cycle;
+  \fill[torn border]               % Add the torn upper border
+        ($(A.north east)-(0,.2)$) -- ($(A.north west)-(0,.2)$) -- 
+        ($(A.north west)+(0,.2)$) -- ($(A.north east)+(0,.2)$) -- cycle;
+  \end{pgfonlayer}}}
+
+% Define the environment which puts the frame
+% In this case, the environment also accepts an argument with an optional
+% title (which defaults to ``Example'', which is typeset in a box overlaid
+% on the top border
+\newenvironment{parchment}[1][Example]{%
+  \def\FrameCommand{\parchmentframe}%
+  \def\FirstFrameCommand{\parchmentframetop}%
+  \def\LastFrameCommand{\parchmentframebottom}%
+  \def\MidFrameCommand{\parchmentframemiddle}%
+  \vskip\baselineskip
+  \MakeFramed {\FrameRestore}
+  \noindent\tikz\node[inner sep=1ex, draw=black!20,fill=white, 
+          anchor=west, overlay] at (0em, 2em) {\sffamily#1};\par}%
+{\endMakeFramed}
+
+
+%---- Boxes with text and math ----%
+\usepackage{tikz}
+\usetikzlibrary{shapes,snakes}
+\usepackage{amsmath,amssymb}
+
+
+
+%---- 특수문자 ---%
+\usepackage{pifont}
+
+%---- 다단편집 Columns ---%
+\usepackage{multicol}
